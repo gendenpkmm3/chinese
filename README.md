@@ -1,2 +1,0 @@
-# chinese
-4grade
