@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蠟筆小新填空大挑戰！</title>
     <style>
-        /* --- CSS 樣式設計 --- */
+        /* --- CSS 樣式設計 (保持不變) --- */
         :root {
             --shinchan-red: #FF4136;
             --shinchan-yellow: #FFDC00;
@@ -15,8 +15,9 @@
         }
 
         body {
-            font-family: 'Comic Sans MS', '微軟正黑體', sans-serif; /* 嘗試使用俏皮一點的字體 */
+            font-family: 'Comic Sans MS', '微軟正黑體', sans-serif;
             background-color: var(--bg-color);
+            /* 加入一個簡單的蠟筆風格背景紋理 */
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
             color: var(--text-color);
             display: flex;
@@ -46,7 +47,6 @@
             margin-bottom: 30px;
         }
 
-        /* 問題區域 */
         .question-section {
             margin-bottom: 25px;
         }
@@ -62,14 +62,17 @@
             border: 2px solid var(--shinchan-yellow);
         }
 
-        /* 圖片區域 */
         .image-container {
             text-align: center;
             margin-bottom: 25px;
             border: 3px solid #333;
             border-radius: 10px;
             overflow: hidden;
-            background-color: #eee; /* 圖片載入前的背景色 */
+            background-color: #fff;
+            min-height: 300px; /* 確保圖片載入前有高度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .quiz-image {
@@ -79,7 +82,6 @@
             margin: 0 auto;
         }
 
-        /* 選項按鈕 */
         .options-container {
             display: flex;
             flex-direction: column;
@@ -123,13 +125,12 @@
             border-color: var(--shinchan-red);
         }
 
-        /* 回饋與提示 */
         .feedback, .hint-box {
             margin-top: 20px;
             padding: 15px;
             border-radius: 10px;
             font-size: 1.1rem;
-            display: none; /* 預設隱藏 */
+            display: none;
         }
 
         .feedback.correct {
@@ -152,7 +153,6 @@
             color: #383d41;
         }
 
-        /* 控制按鈕 */
         .controls {
             margin-top: 30px;
             display: flex;
@@ -176,14 +176,13 @@
         
         .next-btn {
             background-color: var(--shinchan-yellow);
-            display: none; /* 初始隱藏，作答後顯示 */
+            display: none;
         }
         
         .next-btn:hover {
              background-color: #FFD700;
         }
 
-        /* 進度條 */
         .progress-bar {
             position: absolute;
             top: 0;
@@ -194,7 +193,6 @@
             transition: width 0.3s ease;
         }
 
-        /* 結果頁面 */
         .results-container {
             text-align: center;
             display: none;
@@ -235,7 +233,7 @@
             </div>
 
             <div class="options-container" id="options-container">
-                </div>
+            </div>
 
             <div class="feedback" id="feedback"></div>
             <div class="hint-box" id="hint-box">提示: <span id="hint-text"></span></div>
@@ -259,12 +257,12 @@
     <script>
         // --- JavaScript 邏輯控制 ---
 
-        // 1. 題庫資料 (完整的15題，圖片使用佔位符)
+        // 1. 題庫資料 (已嵌入真實圖片連結 - 這些連結是暫時的)
         const quizData = [
             {
                 question: "1. 下雨天，風間很紳士地幫妮妮 （　）傘，臉都紅了。",
-                // TODO: 請替換成您的本地圖片檔名，例如 "image_6.png" (如果圖片和html在同一層目錄)
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片1(image_6.png)",
+                // 這裡已經換成了真實的圖片連結
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_6.png",
                 answerOptions: [
                     { text: "撐", rationale: "「撐傘」是固定搭配，意思是張開並舉著傘。", isCorrect: true },
                     { text: "拿", rationale: "「拿」只是拿著，沒有張開的意思。", isCorrect: false }
@@ -273,8 +271,7 @@
             },
             {
                 question: "2. 雨下得太急了，門前的小水溝水流滾滾，看起來就像一條長 （　） 。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片2(image_9.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_9.png",
                 answerOptions: [
                     { text: "江", rationale: "用「長江」誇張比喻水流很大的樣子。", isCorrect: true },
                     { text: "河", rationale: "雖然也是河流，但不如「長江」有誇張效果。", isCorrect: false }
@@ -283,8 +280,7 @@
             },
             {
                 question: "3. 小白忘記躲雨，全身的毛都被淋 （　）了，不停地發抖。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片3(image_10.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_10.png",
                 answerOptions: [
                     { text: "溼", rationale: "被水淋到後變成的狀態。", isCorrect: true },
                     { text: "乾", rationale: "與被雨淋到的狀態相反。", isCorrect: false }
@@ -293,8 +289,7 @@
             },
             {
                 question: "4. 快把沾滿泥巴的髒（　） 子脫下來！",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片4(image_11.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_11.png",
                 answerOptions: [
                     { text: "鞋", rationale: "穿在腳上，沾滿泥巴的東西是「鞋子」。", isCorrect: true },
                     { text: "襪", rationale: "雖然襪子也會髒，但圖片中小新正在脫的是鞋子。", isCorrect: false }
@@ -303,8 +298,7 @@
             },
             {
                 question: "5. 快把沾滿泥巴的髒鞋子（　） 下來！",
-                 // TODO: 請替換本地圖片 (與上一題同圖)
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片5(image_11.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_11.png",
                 answerOptions: [
                     { text: "脫", rationale: "把穿著的鞋子取下的動作。", isCorrect: true },
                     { text: "穿", rationale: "相反動作。", isCorrect: false }
@@ -313,8 +307,7 @@
             },
             {
                 question: "6. 看到小葵因為打雷突然大哭，廣志一時之間不知所 （　） 。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片6(image_12.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_12.png",
                 answerOptions: [
                     { text: "措", rationale: "「不知所措」是成語，形容慌亂不知該怎麼辦。", isCorrect: true },
                     { text: "錯", rationale: "音同字不同，不符合成語。", isCorrect: false }
@@ -323,8 +316,7 @@
             },
             {
                 question: "7. 雷聲轟隆隆！正男嚇得緊緊抱著走廊的 （　）子不敢動。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片7(image_13.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_13.png",
                 answerOptions: [
                     { text: "柱", rationale: "支撐房屋的直立構件。", isCorrect: true },
                     { text: "牆", rationale: "正男抱著的是圓柱形的柱子，不是平面的牆壁。", isCorrect: false }
@@ -333,8 +325,7 @@
             },
             {
                 question: "8. 為了模仿動感超人，小新披著床單自稱是蒙面大 （　） 。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片8(image_14.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_14.png",
                 answerOptions: [
                     { text: "俠", rationale: "「大俠」指見義勇為的英雄人物。", isCorrect: true },
                     { text: "瞎", rationale: "音同字不同，語意不通。", isCorrect: false }
@@ -343,8 +334,7 @@
             },
             {
                 question: "9. 小新嘴裡咬著一（　） 長長的草...",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片9(image_15.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_15.png",
                 answerOptions: [
                     { text: "根", rationale: "細長條狀物的量詞，如草、棍子。", isCorrect: true },
                     { text: "條", rationale: "通常用於較軟或較寬的長條物，形容草用「根」更精確。", isCorrect: false }
@@ -353,8 +343,7 @@
             },
             {
                 question: "10. ...覺得自己現在的樣子非常（　） 氣。",
-                 // TODO: 請替換本地圖片 (與上一題同圖)
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片10(image_15.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_15.png",
                 answerOptions: [
                     { text: "帥", rationale: "形容英俊瀟灑，小新自我感覺良好的狀態。", isCorrect: true },
                     { text: "傻", rationale: "雖然旁人可能覺得傻，但小新自己覺得很帥。", isCorrect: false }
@@ -363,8 +352,7 @@
             },
             {
                 question: "11. 阿呆安靜地坐在角落，用色紙 （　）了一隻很厲害的防水紙鶴。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片11(image_16.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_16.png",
                 answerOptions: [
                     { text: "折", rationale: "製作紙鶴的動作。", isCorrect: true },
                     { text: "剪", rationale: "紙鶴主要是靠摺疊而成。", isCorrect: false }
@@ -373,8 +361,7 @@
             },
             {
                 question: "12. 聽到電視傳來動感超人的聲音，大家 （　） 時停下了所有動作。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片12(image_17.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_17.png",
                 answerOptions: [
                     { text: "頓", rationale: "「頓時」表示立刻、突然之間。", isCorrect: true },
                     { text: "準", rationale: "「準時」是按時的意思，不符語境。", isCorrect: false }
@@ -383,8 +370,7 @@
             },
             {
                 question: "13. 聽到明天竟然放颱風假的消息，全家人都 （　） 住了，不敢相信。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片13(image_19.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_19.png",
                 answerOptions: [
                     { text: "愣", rationale: "形容因驚訝而呆住的樣子。", isCorrect: true },
                     { text: "嚇", rationale: "放假通常不是壞事，不至於嚇到。", isCorrect: false }
@@ -393,8 +379,7 @@
             },
             {
                 question: "14. 媽媽大喊：「停 （　） ！如果你再調皮，今天的點心就取消！」",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片14(image_20.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_20.png",
                 answerOptions: [
                     { text: "止", rationale: "「停止」意為不再進行。", isCorrect: true },
                     { text: "下", rationale: "「停下」也可以，但媽媽生氣大喊命令時，「停止」語氣更強烈正式。", isCorrect: false }
@@ -403,8 +388,7 @@
             },
             {
                 question: "15. 這個月修理被小新弄壞的玩具，大 （　） 花掉了爸爸一半的零用錢。",
-                 // TODO: 請替換本地圖片
-                imageUrl: "https://placehold.co/600x400/FFDC00/333?text=請替換圖片15(image_21.png)",
+                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_21.png",
                 answerOptions: [
                     { text: "概", rationale: "「大概」表示推測、估計。", isCorrect: true },
                     { text: "約", rationale: "「大約」意思相近，但「大概」在口語中更常見。", isCorrect: false }
@@ -450,6 +434,12 @@
             // 更新 UI
             questionTextEl.innerText = currentQuizData.question;
             quizImageEl.src = currentQuizData.imageUrl;
+            // 增加圖片載入錯誤處理
+            quizImageEl.onerror = function() {
+                this.alt = "圖片載入失敗，連結可能已失效。請檢查網路或確認圖片來源。";
+                this.style.backgroundColor = "#ddd";
+                this.style.padding = "20px";
+            };
             hintTextEl.innerText = currentQuizData.hint;
             feedbackEl.style.display = 'none';
             feedbackEl.className = 'feedback';
@@ -474,19 +464,17 @@
 
         // 6. 選擇答案處理
         function selectOption(selectedIndex) {
-            if (isQuestionAnswered) return; // 防止重複點擊
+            if (isQuestionAnswered) return;
 
             isQuestionAnswered = true;
             const currentQuizData = quizData[currentQuestionIndex];
             const selectedOption = currentQuizData.answerOptions[selectedIndex];
             const optionButtons = optionsContainerEl.querySelectorAll('.option-btn');
 
-            // 禁用所有按鈕與提示按鈕
             optionButtons.forEach(btn => btn.disabled = true);
             hintBtnEl.disabled = true;
-            hintBoxEl.style.display = 'none'; // 作答後隱藏提示
+            hintBoxEl.style.display = 'none';
 
-            // 判斷對錯並顯示回饋
             if (selectedOption.isCorrect) {
                 score++;
                 optionButtons[selectedIndex].classList.add('correct');
@@ -494,7 +482,6 @@
                 feedbackEl.classList.add('correct');
             } else {
                 optionButtons[selectedIndex].classList.add('incorrect');
-                // 找出正確答案並標示
                 const correctIndex = currentQuizData.answerOptions.findIndex(opt => opt.isCorrect);
                 optionButtons[correctIndex].classList.add('correct');
                 
@@ -503,7 +490,7 @@
             }
             
             feedbackEl.style.display = 'block';
-            nextBtnEl.style.display = 'block'; // 顯示下一題按鈕
+            nextBtnEl.style.display = 'block';
         }
 
         // 7. 顯示提示
