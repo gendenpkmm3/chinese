@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蠟筆小新填空大挑戰！</title>
     <style>
-        /* --- CSS 樣式設計 (保持不變) --- */
+        /* --- CSS 樣式設計 (維持不變) --- */
         :root {
             --shinchan-red: #FF4136;
             --shinchan-yellow: #FFDC00;
@@ -17,8 +17,7 @@
         body {
             font-family: 'Comic Sans MS', '微軟正黑體', sans-serif;
             background-color: var(--bg-color);
-            /* 加入一個簡單的蠟筆風格背景紋理 */
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 2.24 5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
             color: var(--text-color);
             display: flex;
             justify-content: center;
@@ -69,7 +68,7 @@
             border-radius: 10px;
             overflow: hidden;
             background-color: #fff;
-            min-height: 300px; /* 確保圖片載入前有高度 */
+            min-height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -257,12 +256,12 @@
     <script>
         // --- JavaScript 邏輯控制 ---
 
-        // 1. 題庫資料 (已嵌入真實圖片連結 - 這些連結是暫時的)
+        // 1. 題庫資料 (已替換為您提供的本地檔案名稱)
         const quizData = [
             {
                 question: "1. 下雨天，風間很紳士地幫妮妮 （　）傘，臉都紅了。",
-                // 這裡已經換成了真實的圖片連結
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_6.png",
+                // 對應圖片：unnamed (4).jpg
+                imageUrl: "unnamed (4).jpg",
                 answerOptions: [
                     { text: "撐", rationale: "「撐傘」是固定搭配，意思是張開並舉著傘。", isCorrect: true },
                     { text: "拿", rationale: "「拿」只是拿著，沒有張開的意思。", isCorrect: false }
@@ -271,7 +270,8 @@
             },
             {
                 question: "2. 雨下得太急了，門前的小水溝水流滾滾，看起來就像一條長 （　） 。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_9.png",
+                // 對應圖片：unnamed (5).jpg
+                imageUrl: "unnamed (5).jpg",
                 answerOptions: [
                     { text: "江", rationale: "用「長江」誇張比喻水流很大的樣子。", isCorrect: true },
                     { text: "河", rationale: "雖然也是河流，但不如「長江」有誇張效果。", isCorrect: false }
@@ -280,7 +280,8 @@
             },
             {
                 question: "3. 小白忘記躲雨，全身的毛都被淋 （　）了，不停地發抖。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_10.png",
+                // 對應圖片：unnamed (6).jpg
+                imageUrl: "unnamed (6).jpg",
                 answerOptions: [
                     { text: "溼", rationale: "被水淋到後變成的狀態。", isCorrect: true },
                     { text: "乾", rationale: "與被雨淋到的狀態相反。", isCorrect: false }
@@ -289,7 +290,8 @@
             },
             {
                 question: "4. 快把沾滿泥巴的髒（　） 子脫下來！",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_11.png",
+                // 對應圖片：unnamed (7).jpg
+                imageUrl: "unnamed (7).jpg",
                 answerOptions: [
                     { text: "鞋", rationale: "穿在腳上，沾滿泥巴的東西是「鞋子」。", isCorrect: true },
                     { text: "襪", rationale: "雖然襪子也會髒，但圖片中小新正在脫的是鞋子。", isCorrect: false }
@@ -298,7 +300,8 @@
             },
             {
                 question: "5. 快把沾滿泥巴的髒鞋子（　） 下來！",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_11.png",
+                // 對應圖片：unnamed (7).jpg (同上題)
+                imageUrl: "unnamed (7).jpg",
                 answerOptions: [
                     { text: "脫", rationale: "把穿著的鞋子取下的動作。", isCorrect: true },
                     { text: "穿", rationale: "相反動作。", isCorrect: false }
@@ -307,7 +310,8 @@
             },
             {
                 question: "6. 看到小葵因為打雷突然大哭，廣志一時之間不知所 （　） 。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_12.png",
+                // 對應圖片：unnamed (8).jpg
+                imageUrl: "unnamed (8).jpg",
                 answerOptions: [
                     { text: "措", rationale: "「不知所措」是成語，形容慌亂不知該怎麼辦。", isCorrect: true },
                     { text: "錯", rationale: "音同字不同，不符合成語。", isCorrect: false }
@@ -316,7 +320,8 @@
             },
             {
                 question: "7. 雷聲轟隆隆！正男嚇得緊緊抱著走廊的 （　）子不敢動。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_13.png",
+                // 對應圖片：unnamed (9).jpg
+                imageUrl: "unnamed (9).jpg",
                 answerOptions: [
                     { text: "柱", rationale: "支撐房屋的直立構件。", isCorrect: true },
                     { text: "牆", rationale: "正男抱著的是圓柱形的柱子，不是平面的牆壁。", isCorrect: false }
@@ -325,7 +330,8 @@
             },
             {
                 question: "8. 為了模仿動感超人，小新披著床單自稱是蒙面大 （　） 。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_14.png",
+                // 對應圖片：unnamed (10).jpg
+                imageUrl: "unnamed (10).jpg",
                 answerOptions: [
                     { text: "俠", rationale: "「大俠」指見義勇為的英雄人物。", isCorrect: true },
                     { text: "瞎", rationale: "音同字不同，語意不通。", isCorrect: false }
@@ -334,7 +340,8 @@
             },
             {
                 question: "9. 小新嘴裡咬著一（　） 長長的草...",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_15.png",
+                // 對應圖片：unnamed.jpg (注意這個沒有編號)
+                imageUrl: "unnamed.jpg",
                 answerOptions: [
                     { text: "根", rationale: "細長條狀物的量詞，如草、棍子。", isCorrect: true },
                     { text: "條", rationale: "通常用於較軟或較寬的長條物，形容草用「根」更精確。", isCorrect: false }
@@ -343,7 +350,8 @@
             },
             {
                 question: "10. ...覺得自己現在的樣子非常（　） 氣。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_15.png",
+                // 對應圖片：unnamed.jpg (同上題)
+                imageUrl: "unnamed.jpg",
                 answerOptions: [
                     { text: "帥", rationale: "形容英俊瀟灑，小新自我感覺良好的狀態。", isCorrect: true },
                     { text: "傻", rationale: "雖然旁人可能覺得傻，但小新自己覺得很帥。", isCorrect: false }
@@ -352,7 +360,8 @@
             },
             {
                 question: "11. 阿呆安靜地坐在角落，用色紙 （　）了一隻很厲害的防水紙鶴。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_16.png",
+                // 對應圖片：unnamed (1).jpg
+                imageUrl: "unnamed (1).jpg",
                 answerOptions: [
                     { text: "折", rationale: "製作紙鶴的動作。", isCorrect: true },
                     { text: "剪", rationale: "紙鶴主要是靠摺疊而成。", isCorrect: false }
@@ -361,7 +370,8 @@
             },
             {
                 question: "12. 聽到電視傳來動感超人的聲音，大家 （　） 時停下了所有動作。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_17.png",
+                // 對應圖片：unnamed (2).jpg
+                imageUrl: "unnamed (2).jpg",
                 answerOptions: [
                     { text: "頓", rationale: "「頓時」表示立刻、突然之間。", isCorrect: true },
                     { text: "準", rationale: "「準時」是按時的意思，不符語境。", isCorrect: false }
@@ -370,7 +380,8 @@
             },
             {
                 question: "13. 聽到明天竟然放颱風假的消息，全家人都 （　） 住了，不敢相信。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_19.png",
+                // 對應圖片：unnamed (3).jpg
+                imageUrl: "unnamed (3).jpg",
                 answerOptions: [
                     { text: "愣", rationale: "形容因驚訝而呆住的樣子。", isCorrect: true },
                     { text: "嚇", rationale: "放假通常不是壞事，不至於嚇到。", isCorrect: false }
@@ -379,7 +390,8 @@
             },
             {
                 question: "14. 媽媽大喊：「停 （　） ！如果你再調皮，今天的點心就取消！」",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_20.png",
+                // 對應圖片：unnamed (11).jpg
+                imageUrl: "unnamed (11).jpg",
                 answerOptions: [
                     { text: "止", rationale: "「停止」意為不再進行。", isCorrect: true },
                     { text: "下", rationale: "「停下」也可以，但媽媽生氣大喊命令時，「停止」語氣更強烈正式。", isCorrect: false }
@@ -388,7 +400,8 @@
             },
             {
                 question: "15. 這個月修理被小新弄壞的玩具，大 （　） 花掉了爸爸一半的零用錢。",
-                imageUrl: "http://googleusercontent.com/immersive_entry_chip/question_retrieval/0/image_21.png",
+                // 對應圖片：unnamed (12).jpg
+                imageUrl: "unnamed (12).jpg",
                 answerOptions: [
                     { text: "概", rationale: "「大概」表示推測、估計。", isCorrect: true },
                     { text: "約", rationale: "「大約」意思相近，但「大概」在口語中更常見。", isCorrect: false }
@@ -434,12 +447,14 @@
             // 更新 UI
             questionTextEl.innerText = currentQuizData.question;
             quizImageEl.src = currentQuizData.imageUrl;
-            // 增加圖片載入錯誤處理
+            
+            // 增加圖片載入錯誤處理 (如果檔名不對，會顯示這個)
             quizImageEl.onerror = function() {
-                this.alt = "圖片載入失敗，連結可能已失效。請檢查網路或確認圖片來源。";
+                this.alt = "圖片載入失敗。請確認 HTML 檔案與圖片在同一個資料夾，且檔名正確。";
                 this.style.backgroundColor = "#ddd";
                 this.style.padding = "20px";
             };
+
             hintTextEl.innerText = currentQuizData.hint;
             feedbackEl.style.display = 'none';
             feedbackEl.className = 'feedback';
